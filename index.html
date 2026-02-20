@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Absensi Perkuliahan</title>
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Container Utama (Flexbox) -->
+    <div class="container">
+        
+        <!-- SIDEBAR (Menu Samping) -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>Universitas</h2>
+            </div>
+            <ul>
+                <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i> Jadwal Kuliah</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Data Mahasiswa</a></li>
+                <li><a href="#"><i class="fas fa-clipboard-list"></i> Rekap Absensi</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+            </ul>
+        </nav>
+
+        <!-- MAIN CONTENT (Isi Utama) -->
+        <main class="main-content">
+            
+            <!-- Header -->
+            <header>
+                <div class="header-title">
+                    <h1>Absensi Kuliah</h1>
+                    <p>Sistem informasi Akademik</p>
+                </div>
+                <div class="user-profile">
+                    <span>Dosen: <strong>Novi yona sidratul munti ,S.Kom.,M.Kom</strong></span>
+                    <img src="https://via.placeholder.com/40" alt="User">
+                </div>
+            </header>
+
+            <!-- Dashboard Cards (Statistik) -->
+            <section class="cards">
+                <div class="card">
+                    <div class="icon-box blue"><i class="fas fa-users"></i></div>
+                    <div class="card-info">
+                        <h3>Total Mhs</h3>
+                        <p>24 Orang</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="icon-box green"><i class="fas fa-check"></i></div>
+                    <div class="card-info">
+                        <h3>Hadir</h3>
+                        <p>22 Orang</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="icon-box yellow"><i class="fas fa-clock"></i></div>
+                    <div class="card-info">
+                        <h3>Terlambat</h3>
+                        <p>1 Orang</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="icon-box red"><i class="fas fa-times"></i></div>
+                    <div class="card-info">
+                        <h3>Alpha</h3>
+                        <p>1 Orang</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tabel Absensi -->
+            <section class="attendance-section">
+                <div class="table-header">
+                    <div class="class-info">
+                        <h2>Teknik Pemrograman Web</h2>
+                        <p>Tanggal: 24 Oktober 2023 | Jam: 10:00 - 12:00</p>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-export"><i class="fas fa-file-export"></i> Export</button>
+                        <button class="btn-save"><i class="fas fa-save"></i> Simpan</button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>NIM</th>
+                                <th>Nama Mahasiswa</th>
+                                <th>Jurusan</th>
+                                <th>Status Kehadiran</th>
+                                <th>Keterangan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Baris 1 -->
+                            <tr>
+                                <td>1</td>
+                                <td>2455202018</td>
+                                <td>Putri fadilla elisiya joans</td>
+                                <td>Teknik Informatika</td>
+                                <td>
+                                    <select class="status-select hadir">
+                                        <option value="hadir" selected>Hadir</option>
+                                        <option value="terlambat">Terlambat</option>
+                                        <option value="alpha">Alpha</option>
+                                        <option value="izin">Izin</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" placeholder="Opsional"></td>
+                            </tr>
+                            <!-- Baris 2 -->
+                            <tr>
+                                <td>2</td>
+                                <td>2455202016</td>
+                                <td>>M. irfan permadi</td>
+                                <td>Teknik Informatika</td>
+                                <td>
+                                    <select class="status-select terlambat">
+                                        <option value="hadir">Hadir</option>
+                                        <option value="terlambat" selected>Terlambat</option>
+                                        <option value="alpha">Alpha</option>
+                                        <option value="izin">Izin</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" placeholder="Opsional"></td>
+                            </tr>
+                            <!-- Baris 3 -->
+                            <tr>
+                                <td>3</td>
+                                <td>2455202019</td>
+                                <td>Putri Wulandari</td>
+                                <td>Teknik Informatika</td>
+                                <td>
+                                    <select class="status-select alpha">
+                                        <option value="hadir">Hadir</option>
+                                        <option value="terlambat">Terlambat</option>
+                                        <option value="alpha" selected>Alpha</option>
+                                        <option value="izin">Izin</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" placeholder="Opsional"></td>
+                            </tr>
+                            <!-- Baris 4 -->
+                            <tr>
+                                <td>4</td>
+                                <td>2455202018</td>
+                                <td>unknown</td>
+                                <td>Teknik Informatika</td>
+                                <td>
+                                    <select class="status-select">
+                                        <option value="hadir" selected>Hadir</option>
+                                        <option value="terlambat">Terlambat</option>
+                                        <option value="alpha">Alpha</option>
+                                        <option value="izin">Izin</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" placeholder="Opsional"></td>
+                            </tr>
+                             <!-- Baris 5 -->
+                             <tr>
+                                <td>5</td>
+                                <td>2455292018</td>
+                                <td>unknown</td>
+                                <td>Teknik informatika</td>
+                                <td>
+                                    <select class="status-select">
+                                        <option value="hadir" selected>Hadir</option>
+                                        <option value="terlambat">Terlambat</option>
+                                        <option value="alpha">Alpha</option>
+                                        <option value="izin">Izin</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" placeholder="Opsional"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
