@@ -381,3 +381,99 @@ td input[type="text"]:focus {
         justify-content: space-between;
     }
 }
+
+/* FORM ABSEN */
+.form-absen {
+    margin-top: 30px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-absen h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.radio-group label {
+    margin-right: 15px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-submit {
+    background: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-reset {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* DAFTAR ABSEN */
+.hasil-absen {
+    margin-top: 20px;
+}
+
+.hasil-absen ul {
+    list-style: none;
+    padding: 0;
+}
+
+.hasil-absen li {
+    background: #f4f6f8;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+/* RESPONSIVE HP */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: relative;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+}

@@ -9,9 +9,32 @@
     <!-- FontAwesome untuk Ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+<script>
+    // Set tanggal default hari ini
+    document.getElementById("tanggal").valueAsDate = new Date();
+
+    const form = document.getElementById("absenForm");
+    const listAbsen = document.getElementById("listAbsen");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const nama = document.getElementById("nama").value;
+        const tanggal = document.getElementById("tanggal").value;
+        const status = document.querySelector('input[name="status"]:checked').value;
+
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${nama}</strong> | ${status} | ${tanggal}`;
+
+        listAbsen.appendChild(li);
+        form.reset();
+        document.getElementById("tanggal").valueAsDate = new Date();
+    });
+</script>
+
 <body>
 
-    <!-- Container Utama (Flexbox) -->
+    <!-- Container Utama (Flexbox) --> 
     <div class="container">
         
         <!-- SIDEBAR (Menu Samping) -->
@@ -77,6 +100,41 @@
 
             <!-- Tabel Absensi -->
             <section class="attendance-section">
+                <!-- FORM INPUT ABSEN -->
+<section class="form-absen">
+    <h2>Form Absensi Mahasiswa</h2>
+
+    <form id="absenForm">
+        <div class="form-group">
+            <label>Nama Mahasiswa</label>
+            <input type="text" id="nama" placeholder="Masukkan nama" required>
+        </div>
+
+        <div class="form-group">
+            <label>Status Kehadiran</label>
+            <div class="radio-group">
+                <label><input type="radio" name="status" value="Hadir" checked> Hadir</label>
+                <label><input type="radio" name="status" value="Izin"> Izin</label>
+                <label><input type="radio" name="status" value="Alpha"> Alpha</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Tanggal</label>
+            <input type="date" id="tanggal">
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-submit">Submit Absen</button>
+            <button type="reset" class="btn-reset">Reset</button>
+        </div>
+    </form>
+
+    <div class="hasil-absen">
+        <h3>Daftar Absen</h3>
+        <ul id="listAbsen"></ul>
+    </div>
+</section>
                 <div class="table-header">
                     <div class="class-info">
                         <h2>Rekayasa Perangkat Lunak</h2>
