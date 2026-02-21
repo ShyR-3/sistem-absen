@@ -477,3 +477,63 @@ td input[type="text"]:focus {
         flex-direction: column;
     }
 }
+
+/* DAFTAR JADWAL KULIAH */
+.jadwal-section {
+    margin-top: 30px;
+}
+
+.jadwal-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.jadwal-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.jadwal-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.jadwal-card h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.jadwal-card p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #555;
+}
+
+.jadwal-card:hover {
+    transform: translateY(-5px);
+}
+
+.btn-detail {
+    margin-top: 10px;
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-detail:hover {
+    background: #2980b9;
+}
+
+/* RESPONSIVE HP */
+@media (max-width: 768px) {
+    .jadwal-container {
+        grid-template-columns: 1fr;
+    }
+}
