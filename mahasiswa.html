@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Mahasiswa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="mahasiswa.css">
+</head>
+<body>
+    <!-- FORM TAMBAH MAHASISWA -->
+<div class="form-box">
+    <form id="formMahasiswa">
+        <input type="text" id="nim" placeholder="NIM" required>
+        <input type="text" id="nama" placeholder="Nama Mahasiswa" required>
+        <input type="text" id="jurusan" placeholder="Jurusan" required>
+        <button type="submit">Tambah Mahasiswa</button>
+    </form>
+</div>
+
+<!-- TABEL DATA MAHASISWA -->
+<div class="table-box">
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Jurusan</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody id="tabelMahasiswa"></tbody>
+    </table>
+</div>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>Menu</h2>
+        <a href="index.html"><i class="fas fa-clipboard-check"></i> Absensi</a>
+        <a href="mahasiswa.html" class="active"><i class="fas fa-users"></i> Data Mahasiswa</a>
+        <a href="jadwal.html"><i class="fas fa-calendar"></i> Jadwal Kuliah</a>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <h1>Data Mahasiswa</h1>
+
+        <!-- FORM TAMBAH -->
+        <div class="form-box">
+            <form id="formMahasiswa">
+                <input type="text" id="nim" placeholder="NIM" required>
+                <input type="text" id="nama" placeholder="Nama Mahasiswa" required>
+                <input type="text" id="jurusan" placeholder="Jurusan" required>
+                <button type="submit">Tambah Mahasiswa</button>
+            </form>
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>NIM</th>
+                        <th>Nama</th>
+                        <th>Jurusan</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelMahasiswa"></tbody>
+            </table>
+        </div>
+    </main>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("formMahasiswa");
+    const tabel = document.getElementById("tabelMahasiswa");
+
+    let mahasiswa = JSON.parse(localStorage.getItem("mahasiswa")) || [];
+
+    tampilkan();
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        mahasiswa.push({
+            nim: nim.value,
+            nama: nama.value,
+            jurusan: jurusan.value
+        });
+
+        localStorage.setItem("mahasiswa", JSON.stringify(mahasiswa));
+        form.reset();
+        tampilkan();
+    });
+
+    function tampilkan() {
+        tabel.innerHTML = "";
+        mahasiswa.forEach((m, i) => {
+            tabel.innerHTML += `
+                <tr>
+                    <td>${i + 1}</td>
+                    <td>${m.nim}</td>
+                    <td>${m.nama}</td>
+                    <td>${m.jurusan}</td>
+                    <td>
+                        <button class="btn-delete" onclick="hapus(${i})">
+                            Hapus
+                        </button>
+                    </td>
+                </tr>
+            `;
+        });
+    }
+
+    window.hapus = function (index) {
+        if (confirm("Hapus data mahasiswa ini?")) {
+            mahasiswa.splice(index, 1);
+            localStorage.setItem("mahasiswa", JSON.stringify(mahasiswa));
+            tampilkan();
+        }
+    };
+
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("formMahasiswa");
+    const tabel = document.getElementById("tabelMahasiswa");
+
+    // Ambil data dari localStorage
+    let mahasiswa = JSON.parse(localStorage.getItem("mahasiswa")) || [];
+
+    tampilkanMahasiswa();
+
+    // TAMBAH DATA
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const nim = document.getElementById("nim").value;
+        const nama = document.getElementById("nama").value;
+        const jurusan = document.getElementById("jurusan").value;
+
+        mahasiswa.push({ nim, nama, jurusan });
+
+        localStorage.setItem("mahasiswa", JSON.stringify(mahasiswa));
+        form.reset();
+        tampilkanMahasiswa();
+    });
+
+    // TAMPILKAN DATA KE TABEL
+    function tampilkanMahasiswa() {
+        tabel.innerHTML = "";
+
+        mahasiswa.forEach((mhs, index) => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${mhs.nim}</td>
+                <td>${mhs.nama}</td>
+                <td>${mhs.jurusan}</td>
+                <td>
+                    <button class="btn-delete" onclick="hapusMahasiswa(${index})">
+                        Hapus
+                    </button>
+                </td>
+            `;
+            tabel.appendChild(tr);
+        });
+    }
+
+    // HAPUS DATA
+    window.hapusMahasiswa = function (index) {
+        if (confirm("Yakin ingin menghapus mahasiswa ini?")) {
+            mahasiswa.splice(index, 1);
+            localStorage.setItem("mahasiswa", JSON.stringify(mahasiswa));
+            tampilkanMahasiswa();
+        }
+    };
+
+});
+</script>
+</body>
+</html>

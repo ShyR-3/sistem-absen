@@ -643,3 +643,112 @@ table tbody tr:hover {
         font-size: 13px;
     }
 }
+
+/* ============================= */
+/* FORM TAMBAH MAHASISWA */
+/* ============================= */
+.form-box {
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.form-box form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+}
+
+.form-box input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.form-box input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.form-box button {
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-box button:hover {
+    background: #2980b9;
+}
+
+/* ============================= */
+/* TABEL DATA MAHASISWA */
+/* ============================= */
+.table-box {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow-x: auto;
+}
+
+.table-box table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.table-box thead {
+    background: #3498db;
+    color: white;
+}
+
+.table-box th,
+.table-box td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.table-box tbody tr:hover {
+    background: #f5f9ff;
+}
+
+/* ============================= */
+/* TOMBOL HAPUS */
+/* ============================= */
+.btn-delete {
+    background: #e74c3c;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-delete:hover {
+    background: #c0392b;
+}
+
+/* ============================= */
+/* RESPONSIVE HP */
+/* ============================= */
+@media (max-width: 768px) {
+    .form-box form {
+        grid-template-columns: 1fr;
+    }
+
+    .table-box table {
+        font-size: 13px;
+    }
+}
