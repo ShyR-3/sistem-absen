@@ -77,6 +77,16 @@
                     </div>
                 </div>
             </section>
+
+            <div class="form-tambah-mhs">
+    <h3>Tambah Mahasiswa</h3>
+    <form id="formMahasiswa">
+        <input type="text" id="nim" placeholder="NIM" required>
+        <input type="text" id="namaMhs" placeholder="Nama Mahasiswa" required>
+        <input type="text" id="jurusan" placeholder="Jurusan" required>
+        <button type="submit">Tambah</button>
+    </form>
+</div>
     
 
             <!-- Tabel Absensi -->
@@ -105,7 +115,7 @@
                                 <th>Keterangan</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tabelMahasiswa"></tbody>
                             <!-- Baris 1 -->
                             <tr>
                                 <td>1</td>
@@ -186,14 +196,51 @@
                                 </td>
                                 <td><input type="text" placeholder="Opsional"></td>
                             </tr>
-                        </tbody>
+                        <tbody id="tabelMahasiswa"></tbody>
                     </table>
                 </div>
             </section>
 
         </main>
     </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+    const formMahasiswa = document.getElementById("formMahasiswa");
+    const tabel = document.getElementById("tabelMahasiswa");
+
+    formMahasiswa.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const nim = document.getElementById("nim").value;
+        const nama = document.getElementById("namaMhs").value;
+        const jurusan = document.getElementById("jurusan").value;
+
+        const rowCount = tabel.rows.length + 1;
+
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td>${rowCount}</td>
+            <td>${nim}</td>
+            <td>${nama}</td>
+            <td>${jurusan}</td>
+            <td>
+                <select class="status-select">
+                    <option value="hadir" selected>Hadir</option>
+                    <option value="terlambat">Terlambat</option>
+                    <option value="izin">Izin</option>
+                    <option value="alpha">Alpha</option>
+                </select>
+            </td>
+            <td><input type="text" placeholder="Opsional"></td>
+        `;
+
+        tabel.appendChild(tr);
+        formMahasiswa.reset();
+    });
+
+});
+</script>
    
 </body>
 </html>`
