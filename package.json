@@ -2,8 +2,10 @@
   "name": "absensi-kampus",
   "version": "1.0.0",
   "scripts": {
-    "start": "vercel dev",
-    "build": "vercel build"
+    "local": "vercel dev",             
+    "build": "vercel build",           
+    "deploy": "vercel --prod",         
+    "preview": "vercel --preview"     
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0"
