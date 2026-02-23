@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Sistem Absensi UISB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+</html>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>UISB Absensi</h2>
+        <a href="dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="index.html"><i class="fas fa-clipboard-check"></i> Absensi</a>
+        <a href="mahasiswa.html"><i class="fas fa-users"></i> Data Mahasiswa</a>
+        <a href="jadwal.html"><i class="fas fa-calendar"></i> Jadwal Kuliah</a>
+        <a href="rekap.html"><i class="fas fa-chart-bar"></i> Rekap Absensi</a>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- HEADER -->
+        <header class="header">
+            <div>
+                <h1>Dashboard</h1>
+                <p>Sistem Absensi Perkuliahan</p>
+            </div>
+            <div class="profile">
+                <span>Dosen</span>
+                <img src="https://via.placeholder.com/40">
+            </div>
+        </header>
+
+        <!-- CARDS -->
+        <section class="cards">
+            <div class="card blue">
+                <i class="fas fa-users"></i>
+                <div>
+                    <h3 id="totalMahasiswa">0</h3>
+                    <p>Total Mahasiswa</p>
+                </div>
+            </div>
+
+            <div class="card green">
+                <i class="fas fa-check"></i>
+                <div>
+                    <h3 id="hadir">0</h3>
+                    <p>Hadir</p>
+                </div>
+            </div>
+
+            <div class="card yellow">
+                <i class="fas fa-user-clock"></i>
+                <div>
+                    <h3 id="izin">0</h3>
+                    <p>Izin</p>
+                </div>
+            </div>
+
+            <div class="card red">
+                <i class="fas fa-user-times"></i>
+                <div>
+                    <h3 id="alpha">0</h3>
+                    <p>Alpha</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENT -->
+        <section class="content">
+
+            <!-- TABLE -->
+            <div class="box">
+                <h3>Absensi Terakhir</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>NIM</th>
+                            <th>Nama</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelAbsensi"></tbody>
+                </table>
+            </div>
+
+            <!-- INFO -->
+            <div class="box">
+                <h3>Informasi</h3>
+                <p><strong>Tanggal:</strong> <span id="tanggal"></span></p>
+                <p><strong>Mata Kuliah:</strong> Rekayasa Perangkat Lunak</p>
+                <p><strong>Jam:</strong> 10.00 - 12.00</p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+...
+    </main>
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>
